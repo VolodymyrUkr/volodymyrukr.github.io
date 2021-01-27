@@ -78,3 +78,16 @@ html {
     color: #fff;
 }
 
+
+@keyframes sortOfHidden-show {
+    0%   {color: #000;}
+    100% {color: #fff; }
+}
+
+.sortOfHidden {
+    color: #000;
+    animation-name: sortOfHidden-show;
+    animation-delay: 2s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
