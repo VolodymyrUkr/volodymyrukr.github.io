@@ -1,8 +1,9 @@
 window.onload = function() {
     var i = 0;
     let currentString = 0;
-    let strings = ['Wake up, Neo...', 'Follow the white rabbit', 'Beam me up, Scotty', 'What is the meaning of life, the universe, and everything?',
-    '42', 'Wake the f*ck up Samurai. We have a city to burn']
+    let strings = ["Wake up, Neo...", "Follow the white rabbit", "Heeeeere’s Johnny!", "Bond… James Bond.", "Beam me up, Scotty", "Продам гараж",
+    "What is the meaning of life, the universe, and everything?", "42", "Wake the f*ck up, Samurai. We have a city to burn", "A martini… Shaken, not stirred.",
+    "Say ‘hello’ to my little friend!"]
     var txt = strings[0]; 
     var speed = 75;
     let t = txt.length;
@@ -13,7 +14,7 @@ window.onload = function() {
             
             document.getElementById("typewriter-input").innerHTML = string.substring(0, t);
             t--;
-            setTimeout(typeWriterDeleting, 30);
+            setTimeout(typeWriterDeleting, 20);
         }
         else {
             i = 0;
@@ -40,4 +41,23 @@ window.onload = function() {
       }
     }
     typeWriter();
+
+    document.getElementsByClassName("first")[0].onwheel = scrollScreen;
+
+    function scrollScreen(event) {
+        event.preventDefault();
+      
+        if (event.deltaY < 0) {
+          
+            document.getElementsByClassName("first")[0].classList.remove("hidden")
+        }
+        else {
+            document.getElementsByClassName("first")[0].classList.add("hidden")
+        }
+      
+        
+      }
+
+
+    
 }
