@@ -43,21 +43,80 @@ window.onload = function() {
     typeWriter();
 
     document.getElementsByClassName("first")[0].onwheel = scrollScreen;
+    document.getElementsByClassName("second")[0].onwheel = scrollScreen;
+    document.getElementsByClassName("third")[0].onwheel = scrollScreenOnScroll;
 
     function scrollScreen(event) {
+        console.log(event);
         event.preventDefault();
       
         if (event.deltaY < 0) {
-          
-            document.getElementsByClassName("first")[0].classList.remove("hidden")
+            document.getElementsByClassName("second")[0].classList.add("slowFade");
+            setTimeout(function(){
+                document.getElementsByClassName("second")[0].classList.add("hidden");
+                document.getElementsByClassName("first")[0].classList.remove("hidden");
+                document.getElementsByClassName("second")[0].classList.remove("slowFade");
+            }, 2000)
         }
         else {
-            document.getElementsByClassName("first")[0].classList.add("hidden")
+            if (event.target.classList.contains("first")) {
+                document.getElementsByClassName("first")[0].classList.add("slowFade");
+                setTimeout(function(){
+                    document.getElementsByClassName("first")[0].classList.add("hidden");
+                    document.getElementsByClassName("second")[0].classList.remove("hidden");
+                    document.getElementsByClassName("first")[0].classList.remove("slowFade");
+                }, 2000)
+            } else {
+                document.getElementsByClassName("second")[0].classList.add("slowFade");
+                setTimeout(function(){
+                    document.getElementsByClassName("second")[0].classList.add("hidden");
+                    document.getElementsByClassName("third")[0].classList.remove("hidden");
+                }, 2000)
+            }
         }
       
         
       }
+    function scrollScreenOnScroll(event) {
+        console.log(event);
+    }
 
 
-    
+    let scroll = window.requestAnimationFrame;
+
+    let elementsToShow = document.querySelectorAll('.show-on-scroll');
+
+    function loop() {
+
+    elementsToShow.forEach(function (element) {
+        if (isElementInViewport(element)) {
+        element.classList.add('is-visible');
+        } else {
+        element.classList.remove('is-visible');
+        }
+    });
+
+    scroll(loop);
+    }
+
+
+    function isElementInViewport(el) {
+    // special bonus for those using jQuery
+    if (typeof jQuery === "function" && el instanceof jQuery) {
+        el = el[0];
+    }
+    var rect = el.getBoundingClientRect();
+    return (
+        (rect.top <= 0
+        && rect.bottom >= 0)
+        ||
+        (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+        ||
+        (rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+    );
+    }
+
+    loop();
 }
