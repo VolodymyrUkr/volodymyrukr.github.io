@@ -1,7 +1,8 @@
 window.onload = function() {
     var i = 0;
     let currentString = 0;
-    let strings = ["Wake up, Neo...", "Follow the white rabbit", "Heeeeere’s Johnny!", "Bond… James Bond.", "Beam me up, Scotty", "Продам гараж",
+    let strings = ["Wake up, Neo...", "The Matrix has you...", "Follow the white rabbit...", "Knock knock Neo...", "Heeeeere’s Johnny!", "Bond… James Bond.", 
+    "Beam me up, Scotty", "Продам гараж",
     "What is the meaning of life, the universe, and everything?", "42", "Wake the f*ck up, Samurai. We have a city to burn", "A martini… Shaken, not stirred.",
     "Say ‘hello’ to my little friend!"]
     var txt = strings[0]; 
@@ -42,6 +43,15 @@ window.onload = function() {
     }
     typeWriter();
 
+    document.getElementById("nextPage").onclick = () => {
+        document.getElementsByClassName("first")[0].classList.add("slowFade");
+                setTimeout(function(){
+                    document.getElementsByClassName("first")[0].classList.add("hidden");
+                    document.getElementsByClassName("second")[0].classList.remove("hidden");
+                    document.getElementsByClassName("first")[0].classList.remove("slowFade");
+                }, 2000)
+    }
+
     document.getElementsByClassName("first")[0].onwheel = scrollScreen;
     document.getElementsByClassName("second")[0].onwheel = scrollScreen;
     document.getElementsByClassName("third")[0].onwheel = scrollScreenOnScroll;
@@ -72,13 +82,14 @@ window.onload = function() {
                     document.getElementsByClassName("second")[0].classList.add("hidden");
                     document.getElementsByClassName("third")[0].classList.remove("hidden");
                 }, 2000)
+                loop();
             }
         }
       
         
       }
     function scrollScreenOnScroll(event) {
-        console.log(event);
+        loop();
     }
 
 
@@ -88,15 +99,15 @@ window.onload = function() {
 
     function loop() {
 
-    elementsToShow.forEach(function (element) {
-        if (isElementInViewport(element)) {
-        element.classList.add('is-visible');
-        } else {
-        element.classList.remove('is-visible');
-        }
-    });
+        elementsToShow.forEach(function (element) {
+            if (isElementInViewport(element)) {
+            element.classList.add('is-visible');
+            } else {
+            element.classList.remove('is-visible');
+            }
+        });
 
-    scroll(loop);
+        //scroll(loop);
     }
 
 
@@ -118,5 +129,5 @@ window.onload = function() {
     );
     }
 
-    loop();
+    //loop();
 }

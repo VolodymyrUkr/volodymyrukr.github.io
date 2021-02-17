@@ -284,3 +284,92 @@ html {
     opacity: 1;
     transform: rotateZ(-0deg);
 }
+
+.timeline::after {
+	display: block;
+	content: "";
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background: #fff;
+	transform: rotate(45deg);
+	margin-left: -7px;
+}
+
+@keyframes arrow {
+    0%   {margin-top: -200%}
+    25%  {margin-top: 0px; }
+    75%  {margin-top: 0px; }
+    100% {margin-top: 200%; }
+}
+
+
+.arrowDown {
+    width: 17px;
+    height: 15px;
+    animation-name: arrow;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+}
+
+.arrowDown::before {
+    display: block;
+    content: "";
+    border-bottom: 2px solid #000;
+    width: 15px;
+    height: 15px;
+    border-right: 2px solid #000;
+    transform: rotate(45deg);
+}
+
+.arrowDown::after {
+    display: block;
+    content: "";
+    width: 3px;
+    height: 25px;
+    background: #000;
+    position: relative;
+    top: -24px;
+    right: -7px;
+}
+
+#nextPage {
+    cursor: pointer;
+    
+    position: absolute;
+    bottom: 5%;
+}
+
+.arrowWrapper {
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 50%;
+}
+
+@keyframes blob {
+    0%   {margin-top: -5px}
+    25%  {margin-top: 5px; }
+    75%  {margin-top: 0px; }
+    90% {margin-top: 27px; }
+    100% {margin-top: 0px; }
+}
+
+#nextPage::before {
+    animation-name: blob;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    display: block;
+    content: "";
+    height: 30px;
+    width: 30px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: -11px;
+    margin-left: 10px;
+}
