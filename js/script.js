@@ -43,12 +43,20 @@ window.onload = function() {
     }
     typeWriter();
 
-    document.getElementById("nextPage").onclick = () => {
+    document.getElementsByClassName("nextPage")[0].onclick = () => {
         document.getElementsByClassName("first")[0].classList.add("slowFade");
                 setTimeout(function(){
                     document.getElementsByClassName("first")[0].classList.add("hidden");
                     document.getElementsByClassName("second")[0].classList.remove("hidden");
                     document.getElementsByClassName("first")[0].classList.remove("slowFade");
+                }, 2000)
+    }
+
+    document.getElementsByClassName("nextPage")[1].onclick = () => {
+        document.getElementsByClassName("second")[0].classList.add("slowFade");
+                setTimeout(function(){
+                    document.getElementsByClassName("second")[0].classList.add("hidden");
+                    document.getElementsByClassName("third")[0].classList.remove("hidden");
                 }, 2000)
     }
 

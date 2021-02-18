@@ -322,6 +322,11 @@ html {
     transform: rotate(45deg);
 }
 
+.second .arrowDown::before {
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+}
+
 .arrowDown::after {
     display: block;
     content: "";
@@ -333,9 +338,12 @@ html {
     right: -7px;
 }
 
-#nextPage {
+.second .arrowDown::after {
+    background: #fff;
+}
+
+.nextPage {
     cursor: pointer;
-    
     position: absolute;
     bottom: 5%;
 }
@@ -351,15 +359,19 @@ html {
     border-radius: 50%;
 }
 
+.second .arrowWrapper {
+    background: #000;
+}
+
 @keyframes blob {
     0%   {margin-top: -5px}
     25%  {margin-top: 5px; }
     75%  {margin-top: 0px; }
-    90% {margin-top: 27px; }
+    90%  {margin-top: 27px; }
     100% {margin-top: 0px; }
 }
 
-#nextPage::before {
+.nextPage::before {
     animation-name: blob;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
@@ -372,4 +384,8 @@ html {
     position: absolute;
     margin-top: -11px;
     margin-left: 10px;
+}
+
+.second .nextPage::before {
+    background: #000;
 }
