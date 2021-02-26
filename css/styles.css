@@ -80,9 +80,29 @@ html {
     color: gray;
 }
 
+.third h1::before {
+    content: "<h1>";
+    display: block;
+    position: absolute;
+    margin-top: -1.5em;
+    font-size: 0.4em;
+    color: gray;
+}
+
+.third h1::after {
+    content: "</h1>";
+    display: block;
+    position: absolute;
+    margin-top: 0.5em;
+    font-size: 0.4em;
+    color: gray;
+}
+
 .third {
     background: linear-gradient(54deg, #50C9C3, #96DEDA);
     min-height: 100%;
+    font-family: Ubuntu Mono;
+    padding: 50px;
 }
 
 .typewriter {
@@ -168,6 +188,19 @@ html {
     animation-fill-mode: forwards;
 }
 
+@keyframes showStuff {
+    0%   {opacity: 0; margin-left: -10%;}
+    100% {opacity: 100; margin-left: 0;} 
+}
+
+.slowAppear {
+    animation-name: showStuff;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    transition-timing-function: ease
+}
+
+
 .firstCurtain, .secondCurtain, .thirdCurtain {
     height: 100vh;
     display: block;
@@ -191,110 +224,20 @@ html {
 .slowFade .secondCurtain {
     animation-name: curtain;
     animation-delay: 0.2s;
-    animation-duration: 1.5s;
+    animation-duration: 1.3s;
     animation-fill-mode: forwards;
     background: grey;
     z-index: 2;
 }
 
 .slowFade .thirdCurtain {
-    animation-name: hideStuff;
+    animation-name: curtain;
     animation-delay: 0.4s;
-    animation-duration: 1.5s;
+    animation-duration: 1.2s;
     animation-fill-mode: forwards;
     z-index: 3;
 }
 
-
-
-.timeline > .timeCard {
-    font-family: Ubuntu Mono;
-    width: 400px;
-    margin-top: 5%;
-    background: linear-gradient(55deg, #00d2ff,#928DAB);
-    box-shadow: 4px 13px 30px 1px rgba(140, 146, 175, 0.4);
-    border-radius: 5px;
-}
-.timeCard > .card {
-    display: flex;
-    flex-direction: row;
-}
-.timeCard > .header {
-    background: #f44336;
-    display: block;
-    padding: 5px 10px;
-    position: absolute;
-    margin-top: -1em;
-    margin-left: 1em;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.card > .event, .card > .description {
-    width: 48%;
-    background: #fff;
-    width: 180px;
-    min-height: 4em;
-    padding: 1em;
-    margin: 1em;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.timeline {
-    margin: auto;
-    display: block;
-    width: 6px;
-    background: #fff;
-    padding: 5% 0 0;
-}
-
-.timeline:nth-child(2n) > .timeCard {
-    margin-left: -500px;
-}
-
-.timeline:nth-child(2n + 1) > .timeCard {
-    margin-left: 100px;
-}
-
-
-
-.timeline:nth-child(2n) .show-on-scroll {
-    opacity: 0;
-    transform: translateX(-6em) rotateZ(-45deg);
-    transition: transform 3s .25s cubic-bezier(0,1,.3,1),
-                opacity .3s .25s ease-out;
-    will-change: transform, opacity;
-  }
-
-  .timeline:nth-child(2n + 1) .show-on-scroll {
-    opacity: 0;
-    transform: translateX(6em) rotateZ(45deg);
-    transition: transform 3s .25s cubic-bezier(0,1,.3,1),
-                opacity .3s .25s ease-out;
-    will-change: transform, opacity;
- }
-  
- .timeline:nth-child(2n + 1) .show-on-scroll.is-visible{
-    opacity: 1;
-    transform: rotateZ(-0deg);
-}
-.timeline:nth-child(2n) .show-on-scroll.is-visible{
-    opacity: 1;
-    transform: rotateZ(-0deg);
-}
-
-.timeline::after {
-	display: block;
-	content: "";
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	background: #fff;
-	transform: rotate(45deg);
-	margin-left: -7px;
-}
 
 @keyframes arrow {
     0%   {margin-top: -200%}
@@ -364,7 +307,7 @@ html {
 }
 
 @keyframes blob {
-    0%   {margin-top: -5px}
+    0%   {margin-top: -3px}
     25%  {margin-top: 5px; }
     75%  {margin-top: 0px; }
     90%  {margin-top: 27px; }
@@ -377,7 +320,7 @@ html {
     animation-iteration-count: infinite;
     display: block;
     content: "";
-    height: 30px;
+    height: 27px;
     width: 30px;
     background: #fff;
     border-radius: 50%;
@@ -389,3 +332,88 @@ html {
 .second .nextPage::before {
     background: #000;
 }
+.cv {
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    background: #fff;
+    width: 80%;
+	margin: auto;
+}
+.personal-info {
+	padding: 30px;
+	border-left: 10px solid #f25022;
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-info h1 {
+    margin-left: auto;
+    margin-right: auto;
+    color: #f25022;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.personal-info .columns {
+	display: flex;
+    line-height: 1.5em;
+    font-size: 1.2em;
+}
+
+.personal-info .left-column, .right-column {
+    flex-basis: 100%;
+    padding: 20px;
+}
+
+.personal-info div {
+	margin-bottom: 20px;
+}
+
+.personal-info div span {
+	font-weight: bold;
+}
+
+.experience h1 {
+    margin-left: auto;
+    margin-right: auto;
+    color: #7fba00;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.experience {
+	padding: 30px;
+	border-left: 10px solid #7fba00;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-logo {
+    width: 20%;
+    margin-top: 1em;
+    max-width: 100px;
+}
+
+.experience-header {
+	padding: 20px;
+}
+
+.experience-header .left-column {
+	width: 80%;
+	float: left;
+}
+
+.experience-header .left-column p {
+	color: grey;
+}
+
+.experience-description {
+	padding: 0 20px;
+    line-height: 1.5em;
+    font-size: 1.2em;
+}
+
+.second .bio {
+    padding: 0px 5%;
+    text-align: center;
+}
+
