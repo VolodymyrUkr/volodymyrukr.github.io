@@ -103,6 +103,8 @@ html {
     min-height: 100%;
     font-family: Ubuntu Mono;
     padding: 50px;
+    overflow: hidden;
+    padding-top: 100% ;
 }
 
 .typewriter {
@@ -417,3 +419,110 @@ html {
     text-align: center;
 }
 
+.skills {
+	padding: 30px;
+	border-left: 10px solid #00a4ef;
+    display: flex;
+    flex-direction: column;
+}
+
+.skills h1 {
+    margin-left: auto;
+    margin-right: auto;
+    color: #00a4ef;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+@keyframes nextPageButton {
+    0%   {margin-top: 0; opacity: 100;}
+    100% {bottom: 10%; opacity: 0; }
+}
+
+.slideUp .nextPage {
+    animation-name: nextPageButton;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.slideUp .nextPage::before {
+    display: none;
+}
+
+.ssecond .background{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    left: 0;
+    background: #50C9C3;
+    z-index: -1;
+}
+@keyframes slideUp {
+    0%   {height: 100%}
+    100% {height: 100px; }
+}
+@keyframes cleanUp {
+    0%   {height: 100px}
+    100% {height: 0px; }
+}
+.slideUp {
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.slideUp div {
+    animation-name: nextPageButton;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.slideUpThird .animationCurtain {
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    height: 100px;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 3;
+    animation: cleanUp 0.5s 2s forwards;
+}
+
+.slideUpThird .animationCurtainTwo {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    left: 0;
+    background: #fff;
+    z-index: 2;
+    animation: slideUp 1s 0.5s forwards, cleanUp 0.5s 2s forwards;
+
+}
+
+.slideUpThird .animationCurtainThree {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    left: 0;
+    background: #50C9C3;
+    z-index: 1;
+    animation: slideUp 1s 1s forwards, cleanUp 0.5s 2s forwards;
+}
+
+@keyframes topMargin {
+    0%   {padding-top: 100%}
+    100% {padding-top: 50px; }
+}
+
+.slideUpThird  {
+    animation: topMargin 1s 1.5s forwards;
+}

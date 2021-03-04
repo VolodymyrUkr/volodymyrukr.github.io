@@ -46,6 +46,7 @@ window.onload = function() {
     document.getElementsByClassName("nextPage")[0].onclick = firstNextPage;
     document.getElementsByClassName("first")[0].onwheel = firstNextPage;
     function firstNextPage() {
+        event.preventDefault();
         document.getElementsByClassName("first")[0].classList.add("slowFade");
         document.getElementsByClassName("second")[0].classList.add("slowAppear");
 
@@ -58,12 +59,19 @@ window.onload = function() {
 
 
 
-    document.getElementsByClassName("nextPage")[1].onclick = () => {
-        document.getElementsByClassName("second")[0].classList.add("slowFade");
+    document.getElementsByClassName("nextPage")[1].onclick = secondNextPage;
+    
+    
+    function secondNextPage() {
+        document.getElementsByClassName("second")[0].classList.remove("slowAppear");
+        document.getElementsByClassName("second")[0].classList.add("slideUp");
+        document.getElementsByClassName("third")[0].classList.add("slideUpThird");
+
                 setTimeout(function(){
                     document.getElementsByClassName("second")[0].classList.add("hidden");
                     document.getElementsByClassName("third")[0].classList.remove("hidden");
-                }, 2000)
+                    document.getElementsByClassName("second")[0].classList.remove("slowFade");
+                }, 1500)
     }
 
 
