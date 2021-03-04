@@ -490,7 +490,7 @@ html {
     left: 0;
     background: #fff;
     z-index: 3;
-    animation: cleanUp 0.5s 2s forwards;
+    animation: cleanUp 0.5s 1.5s forwards;
 }
 
 .slideUpThird .animationCurtainTwo {
@@ -502,7 +502,7 @@ html {
     left: 0;
     background: #fff;
     z-index: 2;
-    animation: slideUp 1s 0.5s forwards, cleanUp 0.5s 2s forwards;
+    animation: slideUp 1s 0s forwards, cleanUp 0.5s 1.5s forwards;
 
 }
 
@@ -515,7 +515,7 @@ html {
     left: 0;
     background: #50C9C3;
     z-index: 1;
-    animation: slideUp 1s 1s forwards, cleanUp 0.5s 2s forwards;
+    animation: slideUp 1s 0.5s forwards, cleanUp 0.5s 1.5s forwards;
 }
 
 @keyframes topMargin {
@@ -524,5 +524,5 @@ html {
 }
 
 .slideUpThird  {
-    animation: topMargin 1s 1.5s forwards;
+    animation: topMargin 1s 1s forwards;
 }

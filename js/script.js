@@ -71,7 +71,7 @@ window.onload = function() {
                     document.getElementsByClassName("second")[0].classList.add("hidden");
                     document.getElementsByClassName("third")[0].classList.remove("hidden");
                     document.getElementsByClassName("second")[0].classList.remove("slowFade");
-                }, 1500)
+                }, 1000)
     }
 
 
