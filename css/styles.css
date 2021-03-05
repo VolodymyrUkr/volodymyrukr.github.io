@@ -29,7 +29,7 @@ html {
     justify-content: center;
     color: #fff;
     background: #000;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
 }
 
@@ -58,7 +58,7 @@ html {
     justify-content: center;
     color: #000;
     background: #fff;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
 }
 
@@ -492,7 +492,10 @@ html {
     left: 0;
     background: #fff;
     z-index: 3;
-    animation: cleanUp 0.5s 1.1s forwards;
+    animation-name: cleanUp;
+    animation-duration: .5s;
+    animation-delay: 1.1s;
+    animation-fill-mode: forwards;
 }
 
 .slideUpThird .animationCurtainTwo {
@@ -504,7 +507,9 @@ html {
     left: 0;
     background: #fff;
     z-index: 2;
-    animation: slideUpTwo 1s 0s forwards;
+    animation-name: slideUpTwo;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 
 }
 
@@ -517,16 +522,31 @@ html {
     left: 0;
     background: #50C9C3;
     z-index: 1;
-    animation: slideUpTwo 1s 0.5s forwards;
+    animation-name: slideUpTwo;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes topMargin {
-    0%   {transform: scale(97%); opacity: 0;}
-    100% {transform: scale(100%); opacity: 100; }
+    0%   {transform: scale(97%); -webkit-transform: scale(97%); opacity: 0;}
+    100% {transform: scale(100%); -webkit-transform: scale(100%); opacity: 100; }
 }
 
 .slideUpThird .cv {
     opacity: 0;
     transform: scale(97%);
     animation: topMargin 1s 1.6s forwards;
+}
+
+.skills-category {
+    display: flex;
+    line-height: 1.5em;
+    font-size: 1.2em;
+}
+
+.skills-category .left-column, 
+.skills-category .right-column {
+    flex-basis: 100%;
+    padding: 0 30px;
 }
