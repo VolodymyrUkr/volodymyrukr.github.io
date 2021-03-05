@@ -104,7 +104,6 @@ html {
     font-family: Ubuntu Mono;
     padding: 50px;
     overflow: hidden;
-    padding-top: 100% ;
 }
 
 .typewriter {
@@ -464,8 +463,8 @@ html {
     100% {height: 100px; }
 }
 @keyframes cleanUp {
-    0%   {height: 100px}
-    100% {height: 0px; }
+    0%   {top: 0}
+    100% {top: -100px; }
 }
 .slideUp {
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
@@ -479,7 +478,10 @@ html {
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
-
+@keyframes slideUpTwo {
+    0%   {top: 0}
+    100% {top: -100%; }
+}
 .slideUpThird .animationCurtain {
     box-shadow: 0 0 30px rgba(0,0,0,0.3);
     height: 100px;
@@ -490,7 +492,7 @@ html {
     left: 0;
     background: #fff;
     z-index: 3;
-    animation: cleanUp 0.5s 1.5s forwards;
+    animation: cleanUp 0.5s 1.1s forwards;
 }
 
 .slideUpThird .animationCurtainTwo {
@@ -502,27 +504,29 @@ html {
     left: 0;
     background: #fff;
     z-index: 2;
-    animation: slideUp 1s 0s forwards, cleanUp 0.5s 1.5s forwards;
+    animation: slideUpTwo 1s 0s forwards;
 
 }
 
 .slideUpThird .animationCurtainThree {
     height: 100%;
-    position: absolute;
+    position: absolute; 
     top: 0;
     display: block;
     width: 100%;
     left: 0;
     background: #50C9C3;
     z-index: 1;
-    animation: slideUp 1s 0.5s forwards, cleanUp 0.5s 1.5s forwards;
+    animation: slideUpTwo 1s 0.5s forwards;
 }
 
 @keyframes topMargin {
-    0%   {padding-top: 100%}
-    100% {padding-top: 50px; }
+    0%   {transform: scale(97%); opacity: 0;}
+    100% {transform: scale(100%); opacity: 100; }
 }
 
-.slideUpThird  {
-    animation: topMargin 1s 1s forwards;
+.slideUpThird .cv {
+    opacity: 0;
+    transform: scale(97%);
+    animation: topMargin 1s 1.6s forwards;
 }

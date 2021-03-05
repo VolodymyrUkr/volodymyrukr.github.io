@@ -45,7 +45,7 @@ window.onload = function() {
 
     document.getElementsByClassName("nextPage")[0].onclick = firstNextPage;
     document.getElementsByClassName("first")[0].onwheel = firstNextPage;
-    function firstNextPage() {
+    function firstNextPage(event) {
         event.preventDefault();
         document.getElementsByClassName("first")[0].classList.add("slowFade");
         document.getElementsByClassName("second")[0].classList.add("slowAppear");
@@ -60,24 +60,28 @@ window.onload = function() {
 
 
     document.getElementsByClassName("nextPage")[1].onclick = secondNextPage;
+    document.getElementsByClassName("second")[0].onwheel = secondNextPage;
     
-    
-    function secondNextPage() {
-        document.getElementsByClassName("second")[0].classList.remove("slowAppear");
-        document.getElementsByClassName("second")[0].classList.add("slideUp");
-        document.getElementsByClassName("third")[0].classList.add("slideUpThird");
+    function secondNextPage(event) {
+        console.log(event.deltaY);
+        event.preventDefault();
+        if (event.deltaY > 0 || event.deltaY === undefined) {
+            document.getElementsByClassName("second")[0].classList.remove("slowAppear");
+            document.getElementsByClassName("second")[0].classList.add("slideUp");
+            document.getElementsByClassName("third")[0].classList.add("slideUpThird");
 
-                setTimeout(function(){
-                    document.getElementsByClassName("second")[0].classList.add("hidden");
-                    document.getElementsByClassName("third")[0].classList.remove("hidden");
-                    document.getElementsByClassName("second")[0].classList.remove("slowFade");
-                }, 1000)
+                    setTimeout(function(){
+                        document.getElementsByClassName("second")[0].classList.add("hidden");
+                        document.getElementsByClassName("third")[0].classList.remove("hidden");
+                        document.getElementsByClassName("second")[0].classList.remove("slowFade");
+                    }, 1000)
+        }
     }
 
 
 
     
-    document.getElementsByClassName("second")[0].onwheel = scrollScreen;
+    // document.getElementsByClassName("second")[0].onwheel = scrollScreen;
 
     function scrollScreen(event) {
         console.log(event);
