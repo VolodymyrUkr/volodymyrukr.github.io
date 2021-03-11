@@ -31,6 +31,7 @@ html {
     background: #000;
     height: 100vh;
     flex-direction: column;
+    font-size: 2vh;
 }
 
 .first h1::before {
@@ -60,6 +61,7 @@ html {
     background: #fff;
     height: 100vh;
     flex-direction: column;
+    font-size: 2vh;
 }
 
 .second h1::before {
@@ -144,33 +146,28 @@ html {
 
 
 @keyframes sortOfHidden-show {
-    0%   {color: #000; width: 0px;}
-    100% {color: #fff; width: auto;}
+    0%   {color: #000; width: 0;}
+    100% {color: #fff; width: auto}
 }
 
 .sortOfHidden {
     color: #000;
+    width: 0px;
+    display: inline-block;
+    height: 1.1em;
+    overflow-x: hidden;
     animation-name: sortOfHidden-show;
     animation-delay: 2s;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    width: 0px;
+}
+
+.span-title {
     display: inline-block;
-    height: 1em;
+    height: 1.1em;
     overflow-x: hidden;
 }
 
-.sortOfHidden {
-    color: #000;
-    animation-name: sortOfHidden-show;
-    animation-delay: 2s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    width: 0px;
-    display: inline-block;
-    height: 1em;
-    overflow-x: hidden;
-}
 
 @keyframes hideStuff {
     0%   {opacity: 100}
@@ -491,7 +488,7 @@ html {
     width: 100%;
     left: 0;
     background: #fff;
-    z-index: 3;
+    z-index: 4;
     animation-name: cleanUp;
     animation-duration: .5s;
     animation-delay: 1.1s;
@@ -506,7 +503,7 @@ html {
     width: 100%;
     left: 0;
     background: #fff;
-    z-index: 2;
+    z-index: 3;
     animation-name: slideUpTwo;
     animation-duration: 1s;
     animation-fill-mode: forwards;
@@ -521,7 +518,7 @@ html {
     width: 100%;
     left: 0;
     background: #50C9C3;
-    z-index: 1;
+    z-index: 2;
     animation-name: slideUpTwo;
     animation-duration: 1s;
     animation-delay: 0.5s;
@@ -529,12 +526,13 @@ html {
 }
 
 @keyframes topMargin {
-    0%   {transform: scale(97%); -webkit-transform: scale(97%); opacity: 0;}
-    100% {transform: scale(100%); -webkit-transform: scale(100%); opacity: 100; }
+    0%   {-webkit-transform: scale(0.97); transform: scale(0.97);  opacity: 0;}
+    100% {-webkit-transform: scale(1); transform: scale(1);  opacity: 100; }
 }
 
 .slideUpThird .cv {
     opacity: 0;
+    z-index: 1;
     transform: scale(97%);
     animation: topMargin 1s 1.6s forwards;
 }
@@ -549,4 +547,21 @@ html {
 .skills-category .right-column {
     flex-basis: 100%;
     padding: 0 30px;
+}
+
+
+
+.portfolio h1 {
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffb900;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+.portfolio {
+	padding: 30px;
+	border-left: 10px solid #ffb900;
+    display: flex;
+    flex-direction: column;
 }
