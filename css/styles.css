@@ -246,7 +246,6 @@ html {
 
 
 .arrowDown {
-    width: 2vh;
     height: 2vh;
     animation-name: arrow;
     animation-duration: 2.5s;
@@ -276,7 +275,7 @@ html {
     background: #000;
     position: relative;
     top: -2.3vh;
-    left: 0.94vh;
+    left: 0.95vh;
 }
 
 .second .arrowDown::after {
