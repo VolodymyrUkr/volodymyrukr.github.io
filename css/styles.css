@@ -246,8 +246,8 @@ html {
 
 
 .arrowDown {
-    width: 17px;
-    height: 15px;
+    width: 2vh;
+    height: 2vh;
     animation-name: arrow;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
@@ -256,27 +256,27 @@ html {
 .arrowDown::before {
     display: block;
     content: "";
-    border-bottom: 2px solid #000;
-    width: 15px;
-    height: 15px;
-    border-right: 2px solid #000;
+    border-bottom: 0.3vh solid #000;
+    width: 2vh;
+    height: 2vh;
+    border-right: 0.3vh solid #000;
     transform: rotate(45deg);
 }
 
 .second .arrowDown::before {
-    border-bottom: 2px solid #fff;
-    border-right: 2px solid #fff;
+    border-bottom: 0.3vh solid #fff;
+    border-right: 0.3vh solid #fff;
 }
 
 .arrowDown::after {
     display: block;
     content: "";
-    width: 3px;
-    height: 25px;
+    width: 0.32vh;
+    height: 2.5vh;
     background: #000;
     position: relative;
-    top: -24px;
-    right: -7px;
+    top: -2.3vh;
+    left: 0.94vh;
 }
 
 .second .arrowDown::after {
@@ -291,8 +291,8 @@ html {
 
 .arrowWrapper {
     overflow: hidden;
-    width: 50px;
-    height: 50px;
+    width: 5vh;
+    height: 5vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -305,11 +305,11 @@ html {
 }
 
 @keyframes blob {
-    0%   {margin-top: -3px}
-    25%  {margin-top: 5px; }
-    75%  {margin-top: 0px; }
-    90%  {margin-top: 27px; }
-    100% {margin-top: 0px; }
+    0%   {margin-top: -0.7vh}
+    25%  {margin-top: 1vh; }
+    75%  {margin-top: 0vh; }
+    90%  {margin-top: 2.7vh; }
+    100% {margin-top: 0vh; }
 }
 
 .nextPage::before {
@@ -318,13 +318,13 @@ html {
     animation-iteration-count: infinite;
     display: block;
     content: "";
-    height: 27px;
-    width: 30px;
+    height: 3vh;
+    width: 3vh;
     background: #fff;
     border-radius: 50%;
     position: absolute;
-    margin-top: -11px;
-    margin-left: 10px;
+    margin-top: -1.5vh;
+    margin-left: 1vh;
 }
 
 .second .nextPage::before {
