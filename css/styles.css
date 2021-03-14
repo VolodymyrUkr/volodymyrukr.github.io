@@ -256,10 +256,11 @@ html {
     display: block;
     content: "";
     border-bottom: 0.3vh solid #000;
-    width: 2vh;
-    height: 2vh;
+    width: 1.5vh;
+    height: 1.5vh;
     border-right: 0.3vh solid #000;
     transform: rotate(45deg);
+    margin: 0.5vh auto auto;
 }
 
 .second .arrowDown::before {
@@ -270,16 +271,18 @@ html {
 .arrowDown::after {
     display: block;
     content: "";
-    width: 0.32vh;
-    height: 2.5vh;
-    background: #000;
-    position: relative;
-    top: -2.3vh;
-    left: 1vh;
+    border-bottom: 0.3vh solid #000;
+    width: 1.5vh;
+    height: 1.5vh;
+    border-right: 0.3vh solid #000;
+    transform: rotate(45deg);
+    margin: -3vh auto auto;
 }
 
 .second .arrowDown::after {
     background: #fff;
+    border-bottom: 0.3vh solid #fff;
+    border-right: 0.3vh solid #fff;
 }
 
 .nextPage {
