@@ -280,7 +280,6 @@ html {
 }
 
 .second .arrowDown::after {
-    background: #fff;
     border-bottom: 0.3vh solid #fff;
     border-right: 0.3vh solid #fff;
 }
