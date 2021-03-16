@@ -113,7 +113,15 @@ window.onload = function() {
         }
       
         
-      }
+    }
+
+    document.getElementsByClassName("portfolio-category")[0].onclick = (event) => {
+        if(event.target.id === "first-portfolio"){
+            console.log(event.target.getBoundingClientRect());
+        }
+        
+    };
+
     // function scrollScreenOnScroll(event) {
     //     loop();
     // }
