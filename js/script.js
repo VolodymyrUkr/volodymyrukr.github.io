@@ -1,6 +1,7 @@
 window.onload = function() {
     var i = 0;
     let currentString = 0;
+
     let strings = ["Wake up, Neo...", "The Matrix has you...", "Follow the white rabbit...", "Knock knock Neo...", "Heeeeere’s Johnny!", "Bond… James Bond.", 
     "Beam me up, Scotty", "Продам гараж","What is the meaning of life, the universe, and everything?", "42", "Wake the f*ck up, Samurai. We have a city to burn", 
     "A Martini… Shaken, not stirred.", "Say ‘hello’ to my little friend!"]
@@ -115,12 +116,54 @@ window.onload = function() {
         
     }
 
-    document.getElementsByClassName("portfolio-category")[0].onclick = (event) => {
-        if(event.target.id === "first-portfolio"){
-            console.log(event.target.getBoundingClientRect());
+    const portfolioArray = document.getElementsByClassName("portfolio-position");
+
+    [...portfolioArray].forEach(element => {
+        element.onclick = (event) => {
+            [...portfolioArray].forEach(element => {
+                element.classList.remove("clicked");
+            });
+            event.currentTarget.classList.add("clicked");
+            let eventCurrentTarget = event.currentTarget;
+            let background = document.getElementsByClassName("fullscreen-portfolio-background")[0];
+            let currentTarget = event.currentTarget.getBoundingClientRect();
+            console.log(`left: ${currentTarget.left}px; top: ${currentTarget.top}px; width: ${currentTarget.width}px; height: ${currentTarget.height}px;`);
+            background.style.cssText = (`left: ${currentTarget.left}px; top: ${currentTarget.top}px; width: ${currentTarget.width}px; height: ${currentTarget.height}px; opacity: 1;`)
+            //background.classList.add("fullscreen");
+            setTimeout(function(){
+                document.getElementsByClassName("screen third")[0].classList.remove("slideUpThird")
+                document.getElementsByClassName("cv")[0].classList.add("hidden");
+            }, 500)
+            console.log(eventCurrentTarget);
+            // calculate the scale and position for the card to fill the page,
+            var scaleX = window.innerWidth / currentTarget.width;
+            var scaleY = window.innerHeight / currentTarget.height;
+            var offsetX = (window.innerWidth / 2 - currentTarget.width / 2 - currentTarget.left) / scaleX;
+            var offsetY = (window.innerHeight / 2 - currentTarget.height / 2 - currentTarget.top) / scaleY;
+            // set the transform on the cover - it will animate because of the transition set on it in the CSS
+            background.style.transform = 'scaleX('+scaleX+') scaleY('+scaleY+') translate3d('+(offsetX)+'px, '+(offsetY)+'px, 0px)';
+
+            setTimeout(function(){
+                document.getElementsByClassName("close-fullscreen")[0].classList.remove("hidden");
+                document.getElementsByClassName("fullscreen-portfolio")[0].classList.remove("hidden");
+                document.getElementsByClassName("fullscreen-portfolio")[0].classList.add(eventCurrentTarget.id)
+                document.getElementsByClassName("close-fullscreen")[0].onclick = (event) => {
+                    document.getElementsByClassName("cv")[0].classList.remove("hidden");
+                    background.style.transform = '';
+                    background.style.cssText = (`left: 0px; top: 0px; width: 0px; height: 0px;`)
+                    eventCurrentTarget.classList.remove("clicked");
+                    document.getElementsByClassName("close-fullscreen")[0].classList.add("hidden");
+                    document.getElementsByClassName("fullscreen-portfolio")[0].classList.add("hidden");
+                    document.getElementsByClassName("fullscreen-portfolio")[0].classList.remove(eventCurrentTarget.id)
+                }
+            }, 1000)
+            
+
         }
-        
-    };
+    });
+
+
+ 
 
     // function scrollScreenOnScroll(event) {
     //     loop();
