@@ -646,7 +646,7 @@ html {
     height: 5vh;
     position: fixed;
     margin-left: 2vh;
-    box-shadow: 0 0 3px 0 #00a4ef;
+    /* box-shadow: 0 0 3px 0 #00a4ef; */
 }
 
 
@@ -665,15 +665,19 @@ html {
 }
 
 .fullscreen-portfolio img {
-    max-width: 80%;
+    width: 80%;
     margin: auto;
     display: block;
+    border: 3px solid #000;
+    border-radius: 15px;
 }
 
 .fullscreen-portfolio.first-portfolio .first-fullscreen-portfolio,
 .fullscreen-portfolio.second-portfolio .second-fullscreen-portfolio,
 .fullscreen-portfolio.third-portfolio .third-fullscreen-portfolio {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    padding: 0 50px 50px;
 }
 
 .fullscreen-portfolio.first-portfolio .second-fullscreen-portfolio,
@@ -683,4 +687,27 @@ html {
 .fullscreen-portfolio.third-portfolio .first-fullscreen-portfolio,
 .fullscreen-portfolio.third-portfolio .second-fullscreen-portfolio {
     display: none;
+}
+
+.fullscreen-portfolio h1 {
+    display: block;
+    margin: 3% auto;
+    font-size: 2.5em;
+}
+
+.portfolio p {
+    text-align: center;
+    color: grey;
+}
+
+.fullscreen-portfolio p,
+.fullscreen-portfolio li {
+    font-size: 3vh;
+    line-height: 4vh;
+}
+
+.picture-description {
+    color: grey;
+    text-align: center;
+    margin-top: 0;
 }
