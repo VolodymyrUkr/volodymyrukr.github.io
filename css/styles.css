@@ -710,4 +710,9 @@ html {
     color: grey;
     text-align: center;
     margin-top: 0;
+    font-size: 2vh;
+}
+
+.fullscreen-portfolio ol {
+    padding-left: 50px;
 }
