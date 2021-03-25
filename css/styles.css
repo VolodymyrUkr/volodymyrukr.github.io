@@ -356,11 +356,14 @@ html {
 	display: flex;
     line-height: 1.5em;
     font-size: 1.2em;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.personal-info .left-column, .right-column {
-    flex-basis: 100%;
+.personal-info .left-column, 
+.personal-info .right-column {
     padding: 20px;
+    flex: 0 1 640px;
 }
 
 .personal-info div {
@@ -545,11 +548,17 @@ html {
     display: flex;
     line-height: 1.5em;
     font-size: 1.2em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.skills-category span {
+	display: inline-block;
 }
 
 .skills-category .left-column, 
 .skills-category .right-column {
-    flex-basis: 100%;
+    flex: 0 1 620px;
     padding: 0 30px;
 }
 
@@ -572,6 +581,7 @@ html {
 
 .portfolio-category {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .portfolio-illustration img {
@@ -589,6 +599,7 @@ html {
     border: 4px solid #fff;
     box-shadow: 0 0 0 2px #ffb900;
     cursor: pointer;
+    flex: 0 1 280px;
 }
 
 .portfolio-text {
@@ -691,7 +702,7 @@ html {
 
 .fullscreen-portfolio h1 {
     display: block;
-    margin: 3% auto;
+    margin: 5% auto;
     font-size: 2.5em;
 }
 
@@ -718,4 +729,36 @@ html {
 
 .fullscreen-portfolio ol {
     padding-left: 50px;
+}
+
+
+@media (max-width: 1900px) { 
+    .personal-info .left-column, .personal-info .right-column {
+        padding: 20px;
+        flex: 0 1 500px;
+    }
+    
+    .skills-category .left-column, .skills-category .right-column {
+        padding: 0 30px;
+        flex: 0 1 450px;
+    }
+    .portfolio-position {
+        flex: 0 1 250px;
+    }
+}
+
+@media (max-width: 1550px) { 
+    .personal-info .left-column, .personal-info .right-column {
+        padding: 20px;
+        flex: 0 1 400px;
+    }
+    
+    .skills-category .left-column, .skills-category .right-column {
+        padding: 0 30px;
+        flex: 0 1 330px;
+    }
+
+    .portfolio-position {
+        flex: 0 1 220px;
+    }
 }
