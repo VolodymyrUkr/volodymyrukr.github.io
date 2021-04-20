@@ -616,8 +616,7 @@ html {
     z-index: 100;
     transform-origin: 50% 50%;
     opacity: 0;
-    transition: opacity 200ms;
-    transition: transform 300ms ease-in-out 300ms;
+    transition: transform 300ms ease-in-out 300ms, opacity 300ms;
 }
 
 .portfolio-position img {
