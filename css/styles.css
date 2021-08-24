@@ -187,8 +187,8 @@ html {
 }
 
 @keyframes showStuff {
-    0%   {opacity: 0; margin-left: -10%;}
-    100% {opacity: 100; margin-left: 0;} 
+    0%   {opacity: 0; transform: translateX(-10%);}
+    100% {opacity: 100; transform: translateX(0);} 
 }
 
 .slowAppear {
